@@ -1,0 +1,6 @@
+framework module FlexibleCollectionView {
+  umbrella header "FlexibleCollectionView-umbrella.h"
+
+  export *
+  module * { export * }
+}
