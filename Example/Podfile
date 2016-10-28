@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'FlexibleCollectionView_Example' do
+  pod 'FlexibleCollectionView', :path => '../'
+
+  target 'FlexibleCollectionView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
