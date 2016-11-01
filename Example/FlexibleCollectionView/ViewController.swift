@@ -21,13 +21,12 @@ class ViewController: UIViewController {
         let layout = FlexibleCollectionViewLayout()
         
         layout.rows = 4
-        layout.insets = UIEdgeInsets(top: 4,left: 4,bottom: 4,right: 4)
+//        layout.insets = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
+        layout.spacing = 15
         layout.animationEnabled = true
+        layout.duration = 0.3
+        layout.sectionInset = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
         
-        layout.minimumLineSpacing = 4
-        layout.minimumInteritemSpacing = 4
-        layout.sectionInset = UIEdgeInsets(top: 4,left: 4,bottom: 4,right: 4)
-
         collectionView = FlexibleCollectionView(frame: CGRect(x: 0,y: 0,width: size.width,height: size.height), layout: layout)
         
         collectionView.dataSource = self

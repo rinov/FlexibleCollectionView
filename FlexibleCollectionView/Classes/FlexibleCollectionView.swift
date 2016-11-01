@@ -74,9 +74,9 @@ public final class FlexibleCollectionView: UICollectionView {
         
         var length = isPortrait ? frame.width : frame.height
         
-        length -= CGFloat(4) * CGFloat(layout.rows - 1)
+        length -= isPortrait ? (layout.sectionInset.left + layout.sectionInset.right) : (layout.sectionInset.top + layout.sectionInset.bottom)
 
-        length -= isPortrait ? (layout.insets.left + layout.insets.right) : (layout.insets.top + layout.insets.bottom)
+        length -= CGFloat(layout.spacing) * CGFloat(layout.rows - 1)
 
         let side = length / CGFloat(layout.rows)
         
@@ -84,13 +84,21 @@ public final class FlexibleCollectionView: UICollectionView {
 
         newLayout.itemSize = CGSize(width: side, height: side)
 
-        newLayout.minimumLineSpacing = 4
-        newLayout.minimumInteritemSpacing = 4
-        newLayout.sectionInset = UIEdgeInsets(top: 4,left: 4,bottom: 4,right: 4)
-
+        newLayout.minimumLineSpacing = layout.spacing
+        
+        newLayout.minimumInteritemSpacing = layout.spacing
+        
+        newLayout.sectionInset = layout.sectionInset
+        
         newLayout.invalidateLayout()
         
-        setCollectionViewLayout(newLayout, animated: animated)
+        UIView.animate(withDuration: layout.duration) { [weak self] in
+            
+            guard let `self` = self else { return }
+            
+            self.setCollectionViewLayout(newLayout, animated: self.layout.animationEnabled && animated)
+            
+        }
         
     }
     

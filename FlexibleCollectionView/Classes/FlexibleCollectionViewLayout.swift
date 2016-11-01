@@ -16,13 +16,21 @@ public final class FlexibleCollectionViewLayout: UICollectionViewFlowLayout {
 
         static let insets: UIEdgeInsets = .zero
         
+        static let spacing: CGFloat     = 4.0
+        
+        static let duration: Double    = 0.3
+        
         static let animationEnabled     = true
-    
+
     }
     
     public var rows: Int = defaultValue.rows
     
     public var insets: UIEdgeInsets = defaultValue.insets
+    
+    public var spacing = defaultValue.spacing
+    
+    public var duration = defaultValue.duration
     
     public var animationEnabled = defaultValue.animationEnabled
     
@@ -31,10 +39,16 @@ public final class FlexibleCollectionViewLayout: UICollectionViewFlowLayout {
         
     }
     
-    public init(rows: Int, insets: UIEdgeInsets = .zero) {
+    public init(rows: Int, insets: UIEdgeInsets = defaultValue.insets, spacing: CGFloat = defaultValue.spacing, duration: Double = defaultValue.duration ) {
         super.init()
         
         self.rows = rows
+
+        self.insets = insets
+        
+        self.spacing = spacing
+        
+        self.duration = duration
         
     }
     
