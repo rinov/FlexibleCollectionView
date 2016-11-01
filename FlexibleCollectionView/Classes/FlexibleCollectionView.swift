@@ -10,9 +10,13 @@ import Foundation
 
 public final class FlexibleCollectionView: UICollectionView {
     
-    public override required init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+    public var layout: FlexibleCollectionViewLayout!
+    
+    public required init(frame: CGRect, layout: FlexibleCollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
 
+        self.layout = layout
+        
         configureGestures()
         
     }
@@ -27,7 +31,7 @@ public final class FlexibleCollectionView: UICollectionView {
             
         case UISwipeGestureRecognizerDirection.left: break
         
-        case UISwipeGestureRecognizerDirection.left: break
+        case UISwipeGestureRecognizerDirection.right: break
         
         default: break
 
@@ -49,5 +53,22 @@ public final class FlexibleCollectionView: UICollectionView {
         addGestureRecognizer(right)
 
     }
+    
+    public func adaptGridLayout(animated: Bool = true) {
+
+        guard layout.rows > 0 else { return }
+/*
+        let isPortrait = layout. .scrollDirection == .Vertical
+        var length = isPortrait ? self.frame.width : self.frame.height
+        length -= space * CGFloat(numberOfGridsPerRow - 1)
+        length -= isPortrait ? (inset.left + inset.right) : (inset.top + inset.bottom)
+        let side = length / CGFloat(numberOfGridsPerRow)
+        guard side > 0.0 else {
+            return
+        }
+        
+        layout.itemSize = CGSize(width: side, height: side)
+        layout.invalidateLayout()
+  */  }
     
 }

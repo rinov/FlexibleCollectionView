@@ -7,17 +7,27 @@
 //
 
 import UIKit
+import FlexibleCollectionView
 
 class ViewController: UIViewController {
 
+    var collectionView: FlexibleCollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+        
+        let size = UIScreen.main.bounds
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        let layout = FlexibleCollectionViewLayout()
+        
+        layout.minimumLineSpacing = 4
+        layout.minimumInteritemSpacing = 4
+        layout.sectionInset = .zero
+
+        collectionView = FlexibleCollectionView(frame: CGRect(x: 0,y: 0,width: size.width,height: size.height), layout: layout)
+        
+        view.addSubview(collectionView)
+
     }
 
 }
