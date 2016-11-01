@@ -12,13 +12,19 @@ public final class FlexibleCollectionView: UICollectionView {
     
     public var layout: FlexibleCollectionViewLayout!
     
+    public var maximumRows = 10
+    
+    public var minimumRows = 1
+    
     public required init(frame: CGRect, layout: FlexibleCollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
 
         self.layout = layout
-        
+
         configureGestures()
         
+        adaptGridLayout(animated: false)
+  
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -29,13 +35,19 @@ public final class FlexibleCollectionView: UICollectionView {
         
         switch(sender.direction) {
             
-        case UISwipeGestureRecognizerDirection.left: break
+        case UISwipeGestureRecognizerDirection.left:
+            
+            if layout.rows + 1 <= maximumRows { layout.rows += 1 }
         
-        case UISwipeGestureRecognizerDirection.right: break
-        
+        case UISwipeGestureRecognizerDirection.right:
+
+            if layout.rows - 1 >= minimumRows { layout.rows -= 1 }
+
         default: break
 
         }
+        
+        adaptGridLayout()
         
     }
     
@@ -56,19 +68,30 @@ public final class FlexibleCollectionView: UICollectionView {
     
     public func adaptGridLayout(animated: Bool = true) {
 
-        guard layout.rows > 0 else { return }
-/*
-        let isPortrait = layout. .scrollDirection == .Vertical
-        var length = isPortrait ? self.frame.width : self.frame.height
-        length -= space * CGFloat(numberOfGridsPerRow - 1)
-        length -= isPortrait ? (inset.left + inset.right) : (inset.top + inset.bottom)
-        let side = length / CGFloat(numberOfGridsPerRow)
-        guard side > 0.0 else {
-            return
-        }
+        if layout.rows < 1 { return }
         
-        layout.itemSize = CGSize(width: side, height: side)
-        layout.invalidateLayout()
-  */  }
+        let isPortrait = layout.scrollDirection == .vertical
+        
+        var length = isPortrait ? frame.width : frame.height
+        
+        length -= CGFloat(4) * CGFloat(layout.rows - 1)
+
+        length -= isPortrait ? (layout.insets.left + layout.insets.right) : (layout.insets.top + layout.insets.bottom)
+
+        let side = length / CGFloat(layout.rows)
+        
+        let newLayout = UICollectionViewFlowLayout()
+
+        newLayout.itemSize = CGSize(width: side, height: side)
+
+        newLayout.minimumLineSpacing = 4
+        newLayout.minimumInteritemSpacing = 4
+        newLayout.sectionInset = UIEdgeInsets(top: 4,left: 4,bottom: 4,right: 4)
+
+        newLayout.invalidateLayout()
+        
+        setCollectionViewLayout(newLayout, animated: animated)
+        
+    }
     
 }
