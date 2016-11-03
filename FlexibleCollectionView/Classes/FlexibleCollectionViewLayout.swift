@@ -6,49 +6,54 @@
 //
 //
 
-import Foundation
-
 public final class FlexibleCollectionViewLayout: UICollectionViewFlowLayout {
 
-    private struct defaultValue {
+    private enum DefaultValue {
         
-        static let rows: Int            = 4
+        static let rows                 = 4
+        
+        static let maximumRows          = 10
+        
+        static let minimumRows          = 1
 
         static let insets: UIEdgeInsets = .zero
         
         static let spacing: CGFloat     = 4.0
         
-        static let duration: Double    = 0.3
+        static let duration             = 0.3
         
         static let animationEnabled     = true
 
     }
     
-    public var rows: Int = defaultValue.rows
+    public var rows                 = DefaultValue.rows
     
-    public var insets: UIEdgeInsets = defaultValue.insets
+    public var maximumRows          = DefaultValue.maximumRows
     
-    public var spacing = defaultValue.spacing
+    public var minimumRows          = DefaultValue.minimumRows
     
-    public var duration = defaultValue.duration
+    public var insets: UIEdgeInsets = DefaultValue.insets
     
-    public var animationEnabled = defaultValue.animationEnabled
+    public var spacing              = DefaultValue.spacing
+    
+    public var duration             = DefaultValue.duration
+    
+    public var animationEnabled     = DefaultValue.animationEnabled
     
     public override init() {
         super.init()
-        
     }
     
-    public init(rows: Int, insets: UIEdgeInsets = defaultValue.insets, spacing: CGFloat = defaultValue.spacing, duration: Double = defaultValue.duration ) {
+    public init(rows: Int, insets: UIEdgeInsets = DefaultValue.insets, spacing: CGFloat = DefaultValue.spacing, duration: Double = DefaultValue.duration ) {
         super.init()
         
-        self.rows = rows
+        self.rows       = rows
 
-        self.insets = insets
+        self.insets     = insets
         
-        self.spacing = spacing
+        self.spacing    = spacing
         
-        self.duration = duration
+        self.duration   = duration
         
     }
     

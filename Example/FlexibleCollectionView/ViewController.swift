@@ -16,18 +16,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let size = UIScreen.main.bounds
-
         let layout = FlexibleCollectionViewLayout()
         
-        layout.rows = 4
-//        layout.insets = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
-        layout.spacing = 15
-        layout.animationEnabled = true
-        layout.duration = 0.3
-        layout.sectionInset = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
+        layout.rows             = 4
+        layout.spacing          = 15
+        layout.duration         = 0.4
+        layout.sectionInset     = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+
+        collectionView = FlexibleCollectionView(frame: UIScreen.main.bounds, layout: layout)
         
-        collectionView = FlexibleCollectionView(frame: CGRect(x: 0,y: 0,width: size.width,height: size.height), layout: layout)
+        collectionView.delegate = self
         
         collectionView.dataSource = self
         
@@ -36,8 +34,36 @@ class ViewController: UIViewController {
         view.addSubview(collectionView)
 
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        view.layoutIfNeeded()
+
+        collectionView.adaptGridLayout()
+        
+    }
 
 }
+
+// MARK: FlexibleCollectionViewDelegate
+
+extension ViewController: FlexibleCollectionViewDelegate {
+    
+    func flexibleCollectionView(_ collectionView: FlexibleCollectionView, willSwipeViewFor direction: UISwipeGestureRecognizerDirection) {
+        print(#function)
+    }
+    
+    func flexibleCollectionView(_ collectionView: FlexibleCollectionView, didSwipeViewFor direction: UISwipeGestureRecognizerDirection) {
+        print(#function)
+    }
+    
+    func flexibleCollectionView(_ collectionView: FlexibleCollectionView, didFinishAnimation: Bool) {
+        print(#function)
+    }
+}
+
+// MARK: UICollectionViewDataSource
 
 extension ViewController: UICollectionViewDataSource {
     
@@ -45,7 +71,11 @@ extension ViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CELL", for: indexPath)
         
-        cell.backgroundColor = UIColor.red
+        let r = Float(arc4random()%256)/255
+        let g = Float(arc4random()%256)/255
+        let b = Float(arc4random()%256)/255
+        
+        cell.backgroundColor = UIColor.init(colorLiteralRed: r, green: g, blue: b, alpha: 1.0)
         
         return cell
         
@@ -53,7 +83,7 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-        return 100
+        return 1000
     
     }
     
