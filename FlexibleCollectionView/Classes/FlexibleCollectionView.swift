@@ -6,13 +6,9 @@
 //
 //
 
-import Foundation
-
 public final class FlexibleCollectionView: UICollectionView {
     
     public var layout: FlexibleCollectionViewLayout!
-    
-    private var _delegate: FlexibleCollectionViewDelegate?
     
     public override var delegate: UICollectionViewDelegate? {
         
@@ -29,6 +25,8 @@ public final class FlexibleCollectionView: UICollectionView {
         }
         
     }
+    
+    private var _delegate: FlexibleCollectionViewDelegate?
     
     public required init(frame: CGRect, layout: FlexibleCollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)

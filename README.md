@@ -2,8 +2,9 @@
 
 [![CI Status](http://img.shields.io/travis/Ryo Ishikawa/FlexibleCollectionView.svg?style=flat)](https://travis-ci.org/Ryo Ishikawa/FlexibleCollectionView)
 [![Version](https://img.shields.io/cocoapods/v/FlexibleCollectionView.svg?style=flat)](http://cocoapods.org/pods/FlexibleCollectionView)
-[![License](https://img.shields.io/cocoapods/l/FlexibleCollectionView.svg?style=flat)](http://cocoapods.org/pods/FlexibleCollectionView)
-[![Platform](https://img.shields.io/cocoapods/p/FlexibleCollectionView.svg?style=flat)](http://cocoapods.org/pods/FlexibleCollectionView)
+[![License](https://img.shields.io/badge/LICENSE-MIT-yellow.svg)](https://img.shields.io/badge/LICENSE-MIT-yellow.svg)
+[![Language](https://img.shields.io/badge/Language-Swift3-blue.svg)](https://img.shields.io/badge/Language-Swift3-blue.svg)
+
 
 ## Example
 
