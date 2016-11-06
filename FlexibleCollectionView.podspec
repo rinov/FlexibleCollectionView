@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'FlexibleCollectionView'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'An elegant grid layout for UICollectionView.'
 
   s.description      = <<-DESC
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   It keeps beautiful layout flexibly.
                        DESC
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/FlexibleCollectionView'
+  s.homepage         = 'https://github.com/rinov/FlexibleCollectionView'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Ryo Ishikawa' => 'rinov@rinov.jp' }
   s.source           = { :git => 'https://github.com/rinov/FlexibleCollectionView.git', :tag => s.version.to_s }
