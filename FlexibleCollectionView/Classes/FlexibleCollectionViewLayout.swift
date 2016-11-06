@@ -16,8 +16,6 @@ public final class FlexibleCollectionViewLayout: UICollectionViewFlowLayout {
         
         static let minimumRows          = 1
 
-        static let insets: UIEdgeInsets = .zero
-        
         static let spacing: CGFloat     = 4.0
         
         static let duration             = 0.3
@@ -32,8 +30,6 @@ public final class FlexibleCollectionViewLayout: UICollectionViewFlowLayout {
     
     public var minimumRows          = DefaultValue.minimumRows
     
-    public var insets: UIEdgeInsets = DefaultValue.insets
-    
     public var spacing              = DefaultValue.spacing
     
     public var duration             = DefaultValue.duration
@@ -44,12 +40,10 @@ public final class FlexibleCollectionViewLayout: UICollectionViewFlowLayout {
         super.init()
     }
     
-    public init(rows: Int, insets: UIEdgeInsets = DefaultValue.insets, spacing: CGFloat = DefaultValue.spacing, duration: Double = DefaultValue.duration ) {
+    public init(rows: Int, spacing: CGFloat = DefaultValue.spacing, duration: Double = DefaultValue.duration ) {
         super.init()
         
         self.rows       = rows
-
-        self.insets     = insets
         
         self.spacing    = spacing
         
