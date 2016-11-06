@@ -1,6 +1,5 @@
 # FlexibleCollectionView
 
-[![CI Status](http://img.shields.io/travis/Ryo Ishikawa/FlexibleCollectionView.svg?style=flat)](https://travis-ci.org/Ryo Ishikawa/FlexibleCollectionView)
 [![Version](https://img.shields.io/cocoapods/v/FlexibleCollectionView.svg?style=flat)](http://cocoapods.org/pods/FlexibleCollectionView)
 [![License](https://img.shields.io/badge/LICENSE-MIT-yellow.svg)](https://img.shields.io/badge/LICENSE-MIT-yellow.svg)
 [![Language](https://img.shields.io/badge/Language-Swift3-blue.svg)](https://img.shields.io/badge/Language-Swift3-blue.svg)
@@ -8,18 +7,25 @@
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+![FlexibleCollectionView-left](./Resources/fcv-i.gif)
+![FlexibleCollectionView-right](./Resources/fcv-d.gif)
+
+## Usage
 
 ## Requirements
 
-## Installation
+XCode8+
+Swift3
 
-FlexibleCollectionView is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+## Installation
 
 ```ruby
 pod "FlexibleCollectionView"
 ```
+
+and
+
+`$ pod install`
 
 ## Author
 
