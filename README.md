@@ -18,15 +18,15 @@ Example of using in ViewController.
 let layout = FlexibleCollectionViewLayout()
 
 // The number of rows
-layout.rows             = 4
+layout.rows = 4
 
 // The space between items
-layout.spacing          = 15
+layout.spacing = 15
 
 // Animation duration
-layout.duration         = 0.4
+layout.duration = 0.4
 
-layout.sectionInset     = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+layout.sectionInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
 
 collectionView = FlexibleCollectionView(frame: UIScreen.main.bounds, layout: layout)
 
