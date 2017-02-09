@@ -1,9 +1,8 @@
 # FlexibleCollectionView
 
-[![Version](https://img.shields.io/cocoapods/v/FlexibleCollectionView.svg?style=flat)](http://cocoapods.org/pods/FlexibleCollectionView)
 [![License](https://img.shields.io/badge/LICENSE-MIT-yellow.svg)](https://img.shields.io/badge/LICENSE-MIT-yellow.svg)
-[![Language](https://img.shields.io/badge/Language-Swift3-blue.svg)](https://img.shields.io/badge/Language-Swift3-blue.svg)
 
+`FlexibleCollectionView` is a subclass of UICollectionViewLayou, and easy to implement devideable photo viewer.
 
 ## Example
 
