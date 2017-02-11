@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/LICENSE-MIT-yellow.svg)](https://img.shields.io/badge/LICENSE-MIT-yellow.svg)
 
-`FlexibleCollectionView` is a subclass of UICollectionViewLayou, and easy to implement devideable photo viewer.
+`FlexibleCollectionView` is a subclass of `UICollectionView`, and easy to implement devideable photo viewer like view.
 
 ## Example
 
@@ -39,8 +39,7 @@ view.addSubview(collectionView)
 
 ```
 
-FlexibleCollectionViewLayout is inherited from UICollectionViewFlowLayout.
-and these properties are available.
+`FlexibleCollectionViewLayout` is inherited from `UICollectionViewFlowLayout`, and these properties are available.
 
 |Property name|Description|
 |--------|-------|
