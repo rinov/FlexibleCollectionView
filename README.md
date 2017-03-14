@@ -1,9 +1,8 @@
 # FlexibleCollectionView
 
-[![Version](https://img.shields.io/cocoapods/v/FlexibleCollectionView.svg?style=flat)](http://cocoapods.org/pods/FlexibleCollectionView)
 [![License](https://img.shields.io/badge/LICENSE-MIT-yellow.svg)](https://img.shields.io/badge/LICENSE-MIT-yellow.svg)
-[![Language](https://img.shields.io/badge/Language-Swift3-blue.svg)](https://img.shields.io/badge/Language-Swift3-blue.svg)
 
+`FlexibleCollectionView` is a subclass of `UICollectionView`, and easy to implement devideable photo viewer like view.
 
 ## Example
 
@@ -18,15 +17,15 @@ Example of using in ViewController.
 let layout = FlexibleCollectionViewLayout()
 
 // The number of rows
-layout.rows             = 4
+layout.rows = 4
 
 // The space between items
-layout.spacing          = 15
+layout.spacing = 15
 
 // Animation duration
-layout.duration         = 0.4
+layout.duration = 0.4
 
-layout.sectionInset     = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+layout.sectionInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
 
 collectionView = FlexibleCollectionView(frame: UIScreen.main.bounds, layout: layout)
 
@@ -40,8 +39,7 @@ view.addSubview(collectionView)
 
 ```
 
-FlexibleCollectionViewLayout is inherited from UICollectionViewFlowLayout.
-and these properties are available.
+`FlexibleCollectionViewLayout` is inherited from `UICollectionViewFlowLayout`, and these properties are available.
 
 |Property name|Description|
 |--------|-------|
