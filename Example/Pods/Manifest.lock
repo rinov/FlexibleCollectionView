@@ -1,5 +1,5 @@
 PODS:
-  - FlexibleCollectionView (0.1.0)
+  - FlexibleCollectionView (0.1.2)
 
 DEPENDENCIES:
   - FlexibleCollectionView (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FlexibleCollectionView: 627514cfa17807d2862da3cdc867b79bd8acc405
+  FlexibleCollectionView: 4a09e82c3c1241f30fa9f170e2535f68be575453
 
 PODFILE CHECKSUM: 9ac862dbd2432e52a5f5334e92332046be5b7266
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

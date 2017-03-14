@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'FlexibleCollectionView'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'An elegant grid layout for UICollectionView.'
 
   s.description      = <<-DESC
@@ -14,12 +14,5 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/rinov/FlexibleCollectionView.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
-
   s.source_files = 'FlexibleCollectionView/Classes/**/*'
-
-  # s.resource_bundles = {
-  #   'FlexibleCollectionView' => ['FlexibleCollectionView/Assets/*.png']
-  # }
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
 end

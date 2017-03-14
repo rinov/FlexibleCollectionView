@@ -6,44 +6,45 @@
 //
 //
 
-public final class FlexibleCollectionView: UICollectionView {
+open class FlexibleCollectionView: UICollectionView {
     
-    public var layout: FlexibleCollectionViewLayout!
+    public var layout: FlexibleCollectionViewLayout! {
+        didSet {
+            adaptGridLayout(animated: false)
+        }
+    }
     
-    public override var delegate: UICollectionViewDelegate? {
-        
+    open override var delegate: UICollectionViewDelegate? {
         get {
-        
             return _delegate
-        
         }
-        
         set {
-            
             _delegate = newValue as? FlexibleCollectionViewDelegate
-        
         }
-        
     }
     
     private var _delegate: FlexibleCollectionViewDelegate?
     
     public required init(frame: CGRect, layout: FlexibleCollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
-
         self.layout = layout
-
         configureGestures()
-        
         adaptGridLayout(animated: false)
-  
     }
-    
+
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
-    public func adaptGridLayout(animated: Bool = true) {
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+        layout = FlexibleCollectionViewLayout()
+        setCollectionViewLayout(layout, animated: false)
+        configureGestures()
+        adaptGridLayout(animated: false)
+    }
+    
+    public func adaptGridLayout(animated: Bool = true, completion: (()->())? = nil) {
 
         if layout.rows < 1 { return }
         
@@ -70,25 +71,17 @@ public final class FlexibleCollectionView: UICollectionView {
         newLayout.invalidateLayout()
 
         if layout.animationEnabled && animated {
-        
             UIView.animate(withDuration: layout.duration, animations: { [weak self] in
-
                 guard let `self` = self else { return }
-                
                 self.setCollectionViewLayout(newLayout, animated: true)
-
                 }, completion: { [weak self] _ in
-                    
                     guard let `self` = self else { return }
-                    
                     self._delegate?.flexibleCollectionView!(self, didFinishAnimation: true)
-                    
+                    completion?()
             })
-            
         }else{
-            
             setCollectionViewLayout(newLayout, animated: false)
-
+            completion?()
         }
         
     }
@@ -115,15 +108,10 @@ public final class FlexibleCollectionView: UICollectionView {
         switch(sender.direction) {
             
         case UISwipeGestureRecognizerDirection.left:
-            
             if layout.rows + 1 <= layout.maximumRows { layout.rows += 1 }
-            
         case UISwipeGestureRecognizerDirection.right:
-            
             if layout.rows - 1 >= layout.minimumRows { layout.rows -= 1 }
-            
         default: break
-            
         }
         
         adaptGridLayout()
