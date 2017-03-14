@@ -27,7 +27,7 @@ layout.duration = 0.4
 
 layout.sectionInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
 
-collectionView = FlexibleCollectionView(frame: UIScreen.main.bounds, layout: layout)
+collectionView.layout = layout
 
 collectionView.delegate = self
 
